@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160" fill="none">
+  <!-- G letter -->
+  <text x="8" y="128" font-family="Arial Black, sans-serif" font-weight="900" font-size="130" fill="url(#gBlue)" letter-spacing="-4">G</text>
+
+  <!-- O letter (behind globe) -->
+  <text x="102" y="128" font-family="Arial Black, sans-serif" font-weight="900" font-size="130" fill="url(#gBlue)" letter-spacing="-4">O</text>
+
+  <!-- E letter -->
+  <text x="208" y="128" font-family="Arial Black, sans-serif" font-weight="900" font-size="130" fill="url(#gBlue)" letter-spacing="-4">E</text>
+
+  <!-- Globe in center of O -->
+  <circle cx="162" cy="72" r="44" fill="url(#globeGrad)" opacity="0.92"/>
+
+  <!-- Globe grid lines -->
+  <ellipse cx="162" cy="72" rx="44" ry="44" stroke="#5eb8f7" stroke-width="1" fill="none" opacity="0.5"/>
+  <ellipse cx="162" cy="72" rx="22" ry="44" stroke="#5eb8f7" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <ellipse cx="162" cy="72" rx="44" ry="18" stroke="#5eb8f7" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <ellipse cx="162" cy="72" rx="44" ry="32" stroke="#5eb8f7" stroke-width="0.6" fill="none" opacity="0.3"/>
+  <line x1="118" y1="72" x2="206" y2="72" stroke="#5eb8f7" stroke-width="0.8" opacity="0.4"/>
+  <line x1="162" y1="28" x2="162" y2="116" stroke="#5eb8f7" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Orbit ring -->
+  <ellipse cx="162" cy="72" rx="52" ry="18" stroke="url(#orbitGrad)" stroke-width="2.5" fill="none" transform="rotate(-20 162 72)"/>
+
+  <!-- Arrow -->
+  <line x1="188" y1="30" x2="220" y2="5" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="220,5 208,8 214,18" fill="#1e3a8a"/>
+
+  <!-- Swoosh under G -->
+  <path d="M 12 135 Q 50 148 88 138" stroke="#5eb8f7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <defs>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1565c0"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <radialGradient id="globeGrad" cx="40%" cy="35%">
+      <stop offset="0%" stop-color="#90caf9"/>
+      <stop offset="40%" stop-color="#42a5f5"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </radialGradient>
+    <linearGradient id="orbitGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#90caf9"/>
+      <stop offset="50%" stop-color="#42a5f5"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+</svg>
