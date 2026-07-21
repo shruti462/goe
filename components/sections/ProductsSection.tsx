@@ -9,7 +9,6 @@ const products = [
   { name: "DRUMSTICKS\n(MORINGA)", sub: "Export Quality", img: "/images/drumstricks.png" },
   { name: "BANANAS",               sub: "Export Quality", img: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80&auto=format&fit=crop" },
   { name: "ONIONS",                sub: "Export Quality", img: "https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80&auto=format&fit=crop" },
-  { name: "GREEN CHILLIES",        sub: "Export Quality", img: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400&q=80&auto=format&fit=crop" },
   { name: "SEASONAL FRUITS",       sub: "Export Quality", img: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&q=80&auto=format&fit=crop" },
   { name: "FRESH VEGETABLES",      sub: "Export Quality", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80&auto=format&fit=crop" },
   { name: "MANGOES",               sub: "Export Quality", img: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=80&auto=format&fit=crop" },

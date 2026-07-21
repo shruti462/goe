@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, Globe } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 const links = [
   { label: "HOME",           href: "#hero"           },
@@ -16,119 +16,9 @@ const links = [
 ];
 
 /**
- * GoeLogo — built entirely with HTML/CSS divs.
- * No SVG file, no gradients that can clash, always renders.
+ * Logo is now loaded from /images/GOE logo.png
+ * GoeLogo component removed — using <img> tag directly.
  */
-function GoeLogo({ size = 48 }: { size?: number }) {
-  const fontSize = Math.round(size * 0.72);
-  const globeSize = Math.round(size * 0.7);
-
-  return (
-    <div style={{
-      display: "flex",
-      alignItems: "center",
-      height: size,
-      flexShrink: 0,
-      position: "relative",
-      gap: 0,
-    }}>
-      {/* G */}
-      <span style={{
-        fontFamily: "'Arial Black', 'Impact', sans-serif",
-        fontWeight: 900,
-        fontSize: fontSize,
-        lineHeight: 1,
-        color: "#1a5fd4",
-        letterSpacing: -2,
-        textShadow: "1px 2px 4px rgba(10,42,120,0.35)",
-        display: "block",
-      }}>G</span>
-
-      {/* Globe replacing O */}
-      <div style={{
-        width: globeSize,
-        height: globeSize,
-        borderRadius: "50%",
-        background: "radial-gradient(circle at 35% 30%, #c8e8ff 0%, #5ab4f7 30%, #1565d8 65%, #082878 100%)",
-        boxShadow: "0 2px 12px rgba(21,101,216,0.45), inset 0 -2px 6px rgba(0,0,0,0.2)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        flexShrink: 0,
-        overflow: "hidden",
-        border: "1.5px solid rgba(74,180,255,0.5)",
-      }}>
-        {/* Grid lines on globe */}
-        <div style={{
-          position: "absolute", inset: 0,
-          borderRadius: "50%",
-          background: "transparent",
-          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.15)",
-        }}/>
-        {/* Vertical meridian */}
-        <div style={{
-          position: "absolute",
-          width: "50%", height: "100%",
-          border: "none",
-          borderLeft: "1px solid rgba(255,255,255,0.2)",
-          left: "50%",
-        }}/>
-        {/* Horizontal equator */}
-        <div style={{
-          position: "absolute",
-          height: "50%", width: "100%",
-          borderBottom: "1px solid rgba(255,255,255,0.2)",
-          top: 0,
-        }}/>
-        {/* Globe highlight */}
-        <div style={{
-          position: "absolute",
-          top: "12%", left: "18%",
-          width: "35%", height: "28%",
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.28)",
-          transform: "rotate(-20deg)",
-        }}/>
-        {/* Orbital ring */}
-        <div style={{
-          position: "absolute",
-          width: "130%", height: "38%",
-          border: "2px solid rgba(74,180,255,0.75)",
-          borderRadius: "50%",
-          transform: "rotate(-20deg)",
-          left: "-15%",
-        }}/>
-      </div>
-
-      {/* E */}
-      <span style={{
-        fontFamily: "'Arial Black', 'Impact', sans-serif",
-        fontWeight: 900,
-        fontSize: fontSize,
-        lineHeight: 1,
-        color: "#1a5fd4",
-        letterSpacing: -2,
-        textShadow: "1px 2px 4px rgba(10,42,120,0.35)",
-        display: "block",
-      }}>E</span>
-
-      {/* Arrow top-right */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        right: -8,
-        width: 18,
-        height: 18,
-      }}>
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <line x1="2" y1="16" x2="16" y2="2" stroke="#1a5fd4" strokeWidth="2.2" strokeLinecap="round"/>
-          <polygon points="16,2 9,5 13,9" fill="#1a5fd4"/>
-        </svg>
-      </div>
-    </div>
-  );
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -184,8 +74,12 @@ export default function Navbar() {
               display: "flex", alignItems: "center", gap: 10,
             }}
           >
-            <GoeLogo size={48} />
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", lineHeight: 1, paddingLeft: 10 }}>
+            <img
+              src="/images/GOE logo.png"
+              alt="Gamare Overseas Exim Logo"
+              style={{ height: 54, width: "auto", display: "block", objectFit: "contain" }}
+            />
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", lineHeight: 1 }}>
               <span style={{
                 fontFamily: "'Poppins', sans-serif", fontWeight: 800,
                 fontSize: 14, color: "#1e3a6e", whiteSpace: "nowrap", letterSpacing: "0.01em",
@@ -255,8 +149,12 @@ export default function Navbar() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12, paddingBottom: 12, borderBottom: "1px solid #f1f5f9" }}>
-              <GoeLogo size={38} />
-              <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 13, color: "#1e3a6e", paddingLeft: 8 }}>
+              <img
+                src="/images/GOE logo.png"
+                alt="GOE"
+                style={{ height: 42, width: "auto", objectFit: "contain" }}
+              />
+              <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 13, color: "#1e3a6e" }}>
                 GAMARE OVERSEAS EXIM
               </span>
             </div>

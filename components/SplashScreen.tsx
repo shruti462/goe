@@ -58,7 +58,7 @@ export default function SplashScreen() {
               style={{ marginBottom: 20 }}
             >
               <img
-                src="/images/goe-logo.svg"
+                src="/images/GOE logo.png"
                 alt="GOE Logo"
                 style={{ width: 200, height: "auto", filter: "drop-shadow(0 8px 32px rgba(30,100,220,0.5))" }}
               />
