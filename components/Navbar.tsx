@@ -72,9 +72,9 @@ export default function Navbar() {
             }}
           >
             <img
-              src="/images/goe-logo.svg"
+              src="/images/goe-logo.png"
               alt="Gamare Overseas Exim"
-              style={{ height: 48, width: "auto", display: "block" }}
+              style={{ height: 52, width: "auto", display: "block", filter: "brightness(1.12) contrast(0.92)" }}
             />
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", lineHeight: 1 }}>
               <span style={{
@@ -154,7 +154,7 @@ export default function Navbar() {
           >
             {/* Mobile logo */}
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12, paddingBottom: 12, borderBottom: "1px solid #f1f5f9" }}>
-              <img src="/images/goe-logo.svg" alt="GOE" style={{ height: 40, width: "auto" }} />
+              <img src="/images/goe-logo.png" alt="GOE" style={{ height: 44, width: "auto", filter: "brightness(1.12) contrast(0.92)" }} />
               <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 14, color: "#1e3a6e" }}>
                 GAMARE OVERSEAS EXIM
               </span>
