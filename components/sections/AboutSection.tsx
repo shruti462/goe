@@ -14,8 +14,17 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section id="about" style={{ padding: "56px 0", background: "#fff", borderTop: "1px solid #e2e8f0" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px" }}>
+    <section id="about" style={{ padding: "56px 0", background: "#fff", borderTop: "1px solid #e2e8f0", position: "relative", overflow: "hidden" }}>
+      {/* Office background image */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "url('/images/bg-office.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        opacity: 0.15,
+      }} />
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 52, alignItems: "center" }} className="about-grid">
 
           {/* Left image */}

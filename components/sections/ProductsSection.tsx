@@ -4,16 +4,17 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
 
-// Drumsticks removed — fruits & vegetables only
+// All products including Drumsticks
 const products = [
-  { name: "BANANAS",          sub: "Export Quality", img: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80&auto=format&fit=crop" },
-  { name: "ONIONS",           sub: "Export Quality", img: "https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80&auto=format&fit=crop" },
-  { name: "GREEN CHILLIES",   sub: "Export Quality", img: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400&q=80&auto=format&fit=crop" },
-  { name: "SEASONAL FRUITS",  sub: "Export Quality", img: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&q=80&auto=format&fit=crop" },
-  { name: "FRESH VEGETABLES", sub: "Export Quality", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80&auto=format&fit=crop" },
-  { name: "MANGOES",          sub: "Export Quality", img: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=80&auto=format&fit=crop" },
-  { name: "POMEGRANATES",     sub: "Export Quality", img: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?w=400&q=80&auto=format&fit=crop" },
-  { name: "GRAPES",           sub: "Export Quality", img: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=400&q=80&auto=format&fit=crop" },
+  { name: "DRUMSTICKS\n(MORINGA)", sub: "Export Quality", img: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&q=80&auto=format&fit=crop" },
+  { name: "BANANAS",               sub: "Export Quality", img: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80&auto=format&fit=crop" },
+  { name: "ONIONS",                sub: "Export Quality", img: "https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80&auto=format&fit=crop" },
+  { name: "GREEN CHILLIES",        sub: "Export Quality", img: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400&q=80&auto=format&fit=crop" },
+  { name: "SEASONAL FRUITS",       sub: "Export Quality", img: "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&q=80&auto=format&fit=crop" },
+  { name: "FRESH VEGETABLES",      sub: "Export Quality", img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&q=80&auto=format&fit=crop" },
+  { name: "MANGOES",               sub: "Export Quality", img: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=80&auto=format&fit=crop" },
+  { name: "POMEGRANATES",          sub: "Export Quality", img: "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?w=400&q=80&auto=format&fit=crop" },
+  { name: "GRAPES",                sub: "Export Quality", img: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=400&q=80&auto=format&fit=crop" },
 ];
 
 const VISIBLE = 6; // cards visible at once on desktop
@@ -30,8 +31,17 @@ export default function ProductsSection() {
   const visible = products.slice(start, start + VISIBLE);
 
   return (
-    <section id="products" style={{ padding: "48px 0 52px", background: "#fff" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px" }}>
+    <section id="products" style={{ padding: "48px 0 52px", background: "#fff", position: "relative", overflow: "hidden" }}>
+      {/* Background image */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "url('/images/bg-vegetables.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center right",
+        backgroundRepeat: "no-repeat",
+        opacity: 0.18,
+      }} />
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
 
         {/* Header row */}
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 28 }}>
