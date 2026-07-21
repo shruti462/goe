@@ -50,9 +50,10 @@ export default function ContactSection() {
             </div>
 
             {[
-              { icon: MapPin, label: "Address",  val: "Nalasopara, Palghar, Maharashtra, India",           href: "#" },
-              { icon: Mail,   label: "Email",    val: "info@gamareoverseas.com",       href: "mailto:info@gamareoverseas.com" },
-              { icon: Globe,  label: "Website",  val: "www.gamareoverseas.com",        href: "https://www.gamareoverseas.com" },
+              { icon: Phone,  label: "Contact",  val: "+91 8530121098",                                  href: "tel:+918530121098" },
+              { icon: MapPin, label: "Address",  val: "Nalasopara, Palghar, Maharashtra, India",         href: "#" },
+              { icon: Mail,   label: "Email",    val: "info@gamareoverseas.com",                         href: "mailto:info@gamareoverseas.com" },
+              { icon: Globe,  label: "Website",  val: "www.gamareoverseas.com",                          href: "https://www.gamareoverseas.com" },
             ].map(c => (
               <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", gap: 14, background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 10, padding: "14px 18px", textDecoration: "none", transition: "box-shadow 0.2s" }}

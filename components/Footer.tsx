@@ -45,6 +45,7 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
                 { icon: MapPin, text: "Nalasopara, Palghar, Maharashtra, India" },
+                { icon: Phone,  text: "+91 8530121098" },
                 { icon: Mail,   text: "info@gamareoverseas.com" },
                 { icon: Globe,  text: "www.gamareoverseas.com" },
               ].map(c => (
