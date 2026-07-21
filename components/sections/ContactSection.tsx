@@ -42,7 +42,7 @@ export default function ContactSection() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid #e2e8f0", height: 260 }}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30309139.37548!2d72.87274!3d19.07283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMaharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30188.86!2d72.7907!3d19.4191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ac0ca4fc2a0b%3A0x1b3a15b6a7e12c3f!2sNalasopara%2C%20Palghar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
                 width="100%" height="100%" style={{ border: 0, display: "block" }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
                 title="Location"
@@ -50,7 +50,7 @@ export default function ContactSection() {
             </div>
 
             {[
-              { icon: MapPin, label: "Address",  val: "Maharashtra, India",           href: "#" },
+              { icon: MapPin, label: "Address",  val: "Nalasopara, Palghar, Maharashtra, India",           href: "#" },
               { icon: Mail,   label: "Email",    val: "info@gamareoverseas.com",       href: "mailto:info@gamareoverseas.com" },
               { icon: Globe,  label: "Website",  val: "www.gamareoverseas.com",        href: "https://www.gamareoverseas.com" },
             ].map(c => (

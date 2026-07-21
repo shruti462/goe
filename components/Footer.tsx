@@ -44,7 +44,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
-                { icon: MapPin, text: "Maharashtra, India" },
+                { icon: MapPin, text: "Nalasopara, Palghar, Maharashtra, India" },
                 { icon: Mail,   text: "info@gamareoverseas.com" },
                 { icon: Globe,  text: "www.gamareoverseas.com" },
               ].map(c => (
