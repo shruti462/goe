@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
 
 // All products including Drumsticks
 const products = [
-  { name: "DRUMSTICKS\n(MORINGA)", sub: "Export Quality", img: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&q=80&auto=format&fit=crop" },
+  { name: "DRUMSTICKS\n(MORINGA)", sub: "Export Quality", img: "/images/drumstricks.png" },
   { name: "BANANAS",               sub: "Export Quality", img: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80&auto=format&fit=crop" },
   { name: "ONIONS",                sub: "Export Quality", img: "https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80&auto=format&fit=crop" },
   { name: "GREEN CHILLIES",        sub: "Export Quality", img: "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400&q=80&auto=format&fit=crop" },
@@ -31,15 +31,19 @@ export default function ProductsSection() {
   const visible = products.slice(start, start + VISIBLE);
 
   return (
-    <section id="products" style={{ padding: "48px 0 52px", background: "#fff", position: "relative", overflow: "hidden" }}>
-      {/* Background image */}
+    <section id="products" style={{ padding: "48px 0 52px", position: "relative", overflow: "hidden" }}>
+      {/* YOUR uploaded background image */}
       <div style={{
         position: "absolute", inset: 0,
-        backgroundImage: "url('/images/bg-vegetables.jpg')",
+        backgroundImage: "url('/images/product RJ.jpeg')",
         backgroundSize: "cover",
-        backgroundPosition: "center right",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        opacity: 0.18,
+      }} />
+      {/* Subtle white overlay so cards remain readable */}
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "rgba(255,255,255,0.82)",
       }} />
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
 

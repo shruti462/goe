@@ -21,15 +21,15 @@ export default function ContactSection() {
 
   return (
     <section id="contact" style={{ padding: "52px 0", background: "#fff", borderTop: "1px solid #e2e8f0", position: "relative", overflow: "hidden" }}>
-      {/* Contact background image */}
+      {/* YOUR uploaded contact background image */}
       <div style={{
         position: "absolute", inset: 0,
-        backgroundImage: "url('/images/bg-fruits.jpg')",
+        backgroundImage: "url('/images/CONTACT RJ.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        opacity: 0.12,
       }} />
+      <div style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,0.86)" }} />
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
         <div style={{ marginBottom: 36 }}>
           <div className="section-title">CONTACT US</div>

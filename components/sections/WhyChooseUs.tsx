@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, ZoomIn, CheckCircle } from "lucide-react";
+import { ArrowRight, X, CheckCircle } from "lucide-react";
 
 const visionText =
   "To become a globally trusted exporter of Indian agricultural products by delivering freshness, quality, and reliability.";
@@ -51,47 +51,78 @@ export default function CertificationsAndVision() {
                 <div style={{ width: 40, height: 3, background: "#16a34a", borderRadius: 2, marginTop: 8 }} />
               </div>
 
-              {/* Certificate image card */}
+              {/* Certificate trigger button — click to open full certificate */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                onClick={() => setShowModal(true)}
-                className="cert-card"
-                style={{
-                  position: "relative", borderRadius: 14, overflow: "hidden",
-                  border: "1.5px solid rgba(255,255,255,0.18)", cursor: "pointer",
-                  marginBottom: 22, boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
-                  transition: "box-shadow 0.25s, transform 0.25s",
-                }}
-                onMouseEnter={(e) => {
-                  const d = e.currentTarget as HTMLDivElement;
-                  d.style.boxShadow = "0 16px 44px rgba(0,0,0,0.55)";
-                  d.style.transform = "translateY(-3px)";
-                }}
-                onMouseLeave={(e) => {
-                  const d = e.currentTarget as HTMLDivElement;
-                  d.style.boxShadow = "0 8px 28px rgba(0,0,0,0.35)";
-                  d.style.transform = "translateY(0)";
-                }}
+                style={{ marginBottom: 28 }}
               >
-                <img
-                  src="/images/Certificate.jpg"
-                  alt="Udyam Registration Certificate"
-                  style={{ width: "100%", height: "auto", display: "block", maxHeight: 260, objectFit: "cover", objectPosition: "top" }}
-                />
-                <div className="cert-overlay" style={{
-                  position: "absolute", inset: 0, background: "rgba(10,18,46,0.55)",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 8,
-                }}>
-                  <div style={{ width: 48, height: 48, borderRadius: "50%", background: "rgba(255,255,255,0.95)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}>
-                    <ZoomIn style={{ width: 22, height: 22, color: "#0d1f3c" }} />
+                <motion.button
+                  whileHover={{ scale: 1.04, boxShadow: "0 12px 36px rgba(0,0,0,0.35)" }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setShowModal(true)}
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 16,
+                    background: "linear-gradient(135deg, #1e3a6e 0%, #132347 100%)",
+                    border: "1.5px solid rgba(255,255,255,0.18)",
+                    borderRadius: 14,
+                    padding: "20px 24px",
+                    cursor: "pointer",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Top accent */}
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #16a34a, #2563eb)" }} />
+
+                  {/* Left: icon + text */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                    <div style={{
+                      width: 52, height: 52, borderRadius: 12,
+                      background: "rgba(255,255,255,0.1)",
+                      border: "1.5px solid rgba(255,255,255,0.2)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      flexShrink: 0,
+                    }}>
+                      <span style={{ fontSize: 26 }}>🇮🇳</span>
+                    </div>
+                    <div style={{ textAlign: "left" }}>
+                      <div style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 14, color: "#fff", letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 3 }}>
+                        Udyam Registration Certificate
+                      </div>
+                      <div style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", letterSpacing: "0.03em" }}>
+                        UDYAM-MH-17-0244760 · Govt. of India · MSME
+                      </div>
+                      <div style={{ marginTop: 6, display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(22,163,74,0.25)", border: "1px solid rgba(22,163,74,0.4)", borderRadius: 999, padding: "3px 10px" }}>
+                        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80" }} />
+                        <span style={{ fontSize: 10, fontWeight: 700, color: "#4ade80", letterSpacing: "0.06em", textTransform: "uppercase" }}>Verified</span>
+                      </div>
+                    </div>
                   </div>
-                  <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 11, color: "#fff", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                    Click to View Full Certificate
-                  </span>
-                </div>
+
+                  {/* Right: view button */}
+                  <div style={{
+                    flexShrink: 0,
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.25)",
+                    borderRadius: 10,
+                    padding: "10px 18px",
+                    display: "flex", alignItems: "center", gap: 7,
+                  }}>
+                    <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 700, fontSize: 12, color: "#fff", letterSpacing: "0.06em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+                      View Certificate
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </div>
+                </motion.button>
               </motion.div>
 
               {/* Other badges */}

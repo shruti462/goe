@@ -19,8 +19,17 @@ const images = [
 
 export default function GallerySection() {
   return (
-    <section id="gallery" style={{ padding: "52px 0", background: "#fff", borderTop: "1px solid #e2e8f0" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px" }}>
+    <section id="gallery" style={{ padding: "52px 0", borderTop: "1px solid #e2e8f0", position: "relative", overflow: "hidden" }}>
+      {/* YOUR uploaded gallery background image */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: "url('/images/GALLERY RJ.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }} />
+      <div style={{ position: "absolute", inset: 0, background: "rgba(255,255,255,0.88)" }} />
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
         <div style={{ marginBottom: 32 }}>
           <div className="section-title">GALLERY</div>
           <div className="section-underline" />
