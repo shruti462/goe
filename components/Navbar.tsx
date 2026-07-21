@@ -5,15 +5,96 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "HOME",           href: "#hero"     },
-  { label: "ABOUT US",       href: "#about"    },
-  { label: "PRODUCTS",       href: "#products" },
-  { label: "EXPORT PROCESS", href: "#process"  },
-  { label: "CERTIFICATIONS",  href: "#certifications"  },
-  { label: "GALLERY",        href: "#gallery"  },
-  { label: "FAQS",           href: "#faqs"     },
-  { label: "CONTACT US",     href: "#contact"  },
+  { label: "HOME",           href: "#hero"           },
+  { label: "ABOUT US",       href: "#about"          },
+  { label: "PRODUCTS",       href: "#products"       },
+  { label: "EXPORT PROCESS", href: "#process"        },
+  { label: "CERTIFICATIONS", href: "#certifications" },
+  { label: "GALLERY",        href: "#gallery"        },
+  { label: "FAQS",           href: "#faqs"           },
+  { label: "CONTACT US",     href: "#contact"        },
 ];
+
+/** Inline GOE logo — no external file, always renders */
+function GoeLogo({ height = 50 }: { height?: number }) {
+  const w = height * 2.7;
+  return (
+    <svg
+      width={w}
+      height={height}
+      viewBox="0 0 270 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="lg1" x1="0" y1="0" x2="0.2" y2="1">
+          <stop offset="0%" stopColor="#5ab4f7" />
+          <stop offset="45%" stopColor="#1a6fd4" />
+          <stop offset="100%" stopColor="#0a2e7a" />
+        </linearGradient>
+        <radialGradient id="globeFill" cx="38%" cy="32%" r="65%">
+          <stop offset="0%" stopColor="#d0eeff" />
+          <stop offset="30%" stopColor="#7ec8f5" />
+          <stop offset="65%" stopColor="#2080d0" />
+          <stop offset="100%" stopColor="#0a3080" />
+        </radialGradient>
+        <linearGradient id="orbitG" x1="0" y1="0" x2="1" y2="0.3">
+          <stop offset="0%" stopColor="#90d0ff" stopOpacity="0.2" />
+          <stop offset="50%" stopColor="#4ab0ff" />
+          <stop offset="100%" stopColor="#1060c0" stopOpacity="0.3" />
+        </linearGradient>
+      </defs>
+
+      {/* G */}
+      <text
+        x="0" y="86"
+        fontFamily="'Arial Black',Impact,sans-serif"
+        fontWeight="900"
+        fontSize="90"
+        fill="url(#lg1)"
+        style={{ letterSpacing: "-3px" }}
+      >G</text>
+
+      {/* E */}
+      <text
+        x="182" y="86"
+        fontFamily="'Arial Black',Impact,sans-serif"
+        fontWeight="900"
+        fontSize="90"
+        fill="url(#lg1)"
+        style={{ letterSpacing: "-3px" }}
+      >E</text>
+
+      {/* Globe circle */}
+      <circle cx="135" cy="47" r="40" fill="url(#globeFill)" />
+
+      {/* Globe grid */}
+      <ellipse cx="135" cy="47" rx="40" ry="40" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" fill="none" />
+      <ellipse cx="135" cy="47" rx="22" ry="40" stroke="rgba(255,255,255,0.18)" strokeWidth="0.7" fill="none" />
+      <ellipse cx="135" cy="47" rx="40" ry="16" stroke="rgba(255,255,255,0.18)" strokeWidth="0.6" fill="none" />
+      <ellipse cx="135" cy="47" rx="40" ry="29" stroke="rgba(255,255,255,0.14)" strokeWidth="0.6" fill="none" />
+      <line x1="95" y1="47" x2="175" y2="47" stroke="rgba(255,255,255,0.18)" strokeWidth="0.6" />
+      <line x1="135" y1="7"  x2="135" y2="87" stroke="rgba(255,255,255,0.18)" strokeWidth="0.6" />
+
+      {/* Globe highlight */}
+      <ellipse cx="120" cy="30" rx="12" ry="8" fill="rgba(255,255,255,0.2)" transform="rotate(-20 120 30)" />
+
+      {/* Orbital ring */}
+      <ellipse cx="135" cy="47" rx="50" ry="18"
+        stroke="url(#orbitG)" strokeWidth="3" fill="none"
+        transform="rotate(-18 135 47)"
+        strokeLinecap="round"
+      />
+
+      {/* Swoosh under G */}
+      <path d="M6 92 Q38 103 66 95" stroke="#5ab4f7" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7" />
+
+      {/* Arrow */}
+      <line x1="168" y1="16" x2="192" y2="2" stroke="#1a6fd4" strokeWidth="2.8" strokeLinecap="round" />
+      <polygon points="192,2 181,6 186,15" fill="#1a6fd4" />
+    </svg>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,14 +116,11 @@ export default function Navbar() {
 
   const go = (href: string) => {
     const id = href.slice(1);
-
-    // "CERTIFICATIONS" nav click → open certificate modal directly
     if (id === "certifications") {
       window.dispatchEvent(new Event("open-certificate"));
       setMenu(false);
       return;
     }
-
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenu(false);
   };
@@ -56,47 +134,38 @@ export default function Navbar() {
         transition: "box-shadow 0.3s",
       }}>
         <div style={{
-          maxWidth: 1280, margin: "0 auto",
-          padding: "0 20px",
-          display: "flex", alignItems: "center",
-          height: 68,
+          maxWidth: 1280, margin: "0 auto", padding: "0 20px",
+          display: "flex", alignItems: "center", height: 68,
         }}>
 
-          {/* ── Logo: actual GOE image ── */}
+          {/* Logo */}
           <button
             onClick={() => go("#hero")}
             style={{
               background: "none", border: "none", cursor: "pointer",
-              padding: 0, marginRight: 24, flexShrink: 0,
-              display: "flex", alignItems: "center", gap: 10,
+              padding: 0, marginRight: 20, flexShrink: 0,
+              display: "flex", alignItems: "center", gap: 8,
             }}
           >
-            <img
-              src="/images/goe-logo.png"
-              alt="Gamare Overseas Exim"
-              style={{ height: 52, width: "auto", display: "block", filter: "brightness(1.12) contrast(0.92)" }}
-            />
+            <GoeLogo height={48} />
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", lineHeight: 1 }}>
               <span style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800, fontSize: 15,
-                color: "#1e3a6e", letterSpacing: "0.01em",
-                whiteSpace: "nowrap",
+                fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 14,
+                color: "#1e3a6e", letterSpacing: "0.01em", whiteSpace: "nowrap",
               }}>
                 GAMARE OVERSEAS EXIM
               </span>
               <span style={{
-                fontSize: 9.5, fontWeight: 600,
-                color: "#64748b", letterSpacing: "0.1em",
-                textTransform: "uppercase", marginTop: 2,
+                fontSize: 9, fontWeight: 600, color: "#64748b",
+                letterSpacing: "0.09em", textTransform: "uppercase", marginTop: 2,
               }}>
                 From Indian Farms to Global Markets
               </span>
             </div>
           </button>
 
-          {/* ── Desktop nav ── */}
-          <nav className="hidden lg:flex" style={{ flex: 1, alignItems: "center", gap: 20, justifyContent: "center" }}>
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex" style={{ flex: 1, alignItems: "center", gap: 18, justifyContent: "center" }}>
             {links.map((l) => (
               <button
                 key={l.label}
@@ -112,7 +181,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* ── CTA button ── */}
+          {/* CTA */}
           <button
             onClick={() => go("#contact")}
             className="hidden lg:flex btn-primary"
@@ -122,21 +191,18 @@ export default function Navbar() {
             CONTACT US
           </button>
 
-          {/* ── Mobile hamburger ── */}
+          {/* Mobile toggle */}
           <button
             className="lg:hidden"
             onClick={() => setMenu(!menu)}
-            style={{
-              marginLeft: "auto", background: "none", border: "none",
-              cursor: "pointer", color: "#1e3a6e", padding: 4,
-            }}
+            style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", color: "#1e3a6e", padding: 4 }}
           >
             {menu ? <X style={{ width: 26, height: 26 }} /> : <Menu style={{ width: 26, height: 26 }} />}
           </button>
         </div>
       </header>
 
-      {/* ── Mobile menu ── */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menu && (
           <motion.div
@@ -148,13 +214,12 @@ export default function Navbar() {
               position: "fixed", top: 68, left: 0, right: 0, zIndex: 9998,
               background: "#fff", borderTop: "1px solid #e2e8f0",
               boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
-              padding: "16px 20px",
-              display: "flex", flexDirection: "column", gap: 2,
+              padding: "16px 20px", display: "flex", flexDirection: "column", gap: 2,
             }}
           >
             {/* Mobile logo */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12, paddingBottom: 12, borderBottom: "1px solid #f1f5f9" }}>
-              <img src="/images/goe-logo.png" alt="GOE" style={{ height: 44, width: "auto", filter: "brightness(1.12) contrast(0.92)" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, paddingBottom: 12, borderBottom: "1px solid #f1f5f9" }}>
+              <GoeLogo height={40} />
               <span style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 800, fontSize: 14, color: "#1e3a6e" }}>
                 GAMARE OVERSEAS EXIM
               </span>

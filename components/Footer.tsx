@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
               <img
-                src="/images/goe-logo.png"
+                src="/images/goe-logo.svg"
                 alt="Gamare Overseas Exim"
                 style={{ height: 52, width: "auto", filter: "brightness(0) invert(1) opacity(0.92)" }}
               />
